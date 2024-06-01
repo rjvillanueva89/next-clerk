@@ -1,20 +1,22 @@
 "use client"
 
 import { ColumnDef } from "@tanstack/react-table"
-import { DataTable } from "./data-table"
+import { DataTable, DataTableHeader } from "./data-table"
 
-const columns: ColumnDef<Participant>[] = [
+const columns: ColumnDef<Participant, Participant>[] = [
   {
     accessorKey: "id",
-    header: "URL",
+    header: ({ column }) => <DataTableHeader label="URL" column={column} />,
   },
   {
     accessorKey: "is_active",
-    header: "Status",
+    header: ({ column }) => <DataTableHeader label="Status" column={column} />,
   },
   {
     accessorKey: "created_at",
-    header: "Created at",
+    header: ({ column }) => (
+      <DataTableHeader label="Created at" column={column} />
+    ),
   },
 ]
 
